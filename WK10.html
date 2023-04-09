@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WEEK 10</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Style10.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1>Sign Up Here</h1>
+    <!-- Bootstrap-styled table with an ID for later reference -->
+    <table id="myTable" class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>25</td>
+          <td>Male</td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td>30</td>
+          <td>Female</td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+    <!-- Bootstrap-styled form with an ID for later reference -->
+    <form id="myForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <!-- Input field for name with required attribute -->
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <!-- Input field for age with required attribute -->
+        <input type="number" class="form-control" id="age" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <!-- Dropdown menu for gender with required attribute -->
+        <select class="form-control" id="gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <!-- Submit button for form submission -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <!-- Add Bootstrap JS and custom JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Add new row to the table on form submission
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      // Get values from form fields
+      let name = document.getElementById("name").value;
+      let age = document.getElementById("age").value;
+      let gender = document.getElementById("gender").value;
+      // Get table and insert a new row
+      let table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+      let newRow = table.insertRow(table.rows.length);
+      // Insert cells with values into the new row
+      let cell1 = newRow.insertCell(0);
+      let cell2 = newRow.insertCell(1);
+      let cell3 = newRow.insertCell(2);
+      cell1.innerHTML = name;
+      cell2.innerHTML = age;
+      cell3.innerHTML = gender;
+      // Reset form fields
+      document.getElementById("name").value = "";
+      document.getElementById("age").value = "";
+      document.getElementById("gender").value = "Male";
+    });
+  </script>
+</body>
+</html>
